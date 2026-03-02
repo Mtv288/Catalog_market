@@ -1,13 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Добро пожаловать в наш магазин</h1>
-
-    <p>Выберите категорию</p>
-
-    <div class="categories">
-        <a class="category-link" href="/mens">Мужская обувь</a>
-        <a class="category-link" href="/women">Женская обувь</a>
+<div class="blocks-container">
+    <!-- Левый блок (текст) -->
+    <div class="card">
+        <h1>Добро пожаловать в наш магазин</h1>
+        <p>Здесь может быть любой текст, описание, приветствие и т.д.</p>
+        <p>А можно добавить ещё что-то полезное.</p>
     </div>
 
+    <!-- Правый блок (вертикальные кнопки) -->
+    <div class="card">
+        <div class="categories vertical">
+            <a class="category-link" href="/mens">Мужская обувь</a>
+            <a class="category-link" href="/women">Женская обувь</a>
+            <a class="category-link" href="/kids">Детская обувь</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

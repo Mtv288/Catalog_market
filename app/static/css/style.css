@@ -2,14 +2,136 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* ← исправлено */
+    box-sizing: border-box;
+}
+
+/* Чтобы body занимал всю высоту окна браузера */
+html, body {
+    height: 100%;
 }
 
 /* Основные стили страницы */
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;      /* ← исправлено */
-    background-color: red;
+    line-height: 1.6;
     color: #333;
+
+    /* Фон */
+    background-image: url('/static/images/Фон2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* Флекс-контейнер для прижатия футера */
+    display: flex;
+    flex-direction: column;
     padding: 20px;
+}
+
+/* Шапка */
+header {
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Основной контент — занимает всю ширину внутри body */
+main {
+    flex: 1 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Контейнер для двух блоков */
+.blocks-container {
+    display: flex;
+    gap: 20px;
+    flex: 1;                 /* занимает всю высоту main */
+}
+
+/* Карточки с полупрозрачным фоном */
+.card {
+    flex: 1;                  /* равная ширина */
+    padding: 20px;
+
+    /* Полупрозрачный белый фон — настраивайте здесь прозрачность */
+    background-color: rgba(255, 255, 255, 0.4); /* 0.7 = 70% непрозрачности */
+
+    border-radius: 10px;      /* скругление углов (опционально) */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* лёгкая тень */
+
+    /* Для управления расположением содержимого */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Левая карточка — текст прижат к верху */
+.card:first-child {
+    justify-content: flex-start;
+}
+
+/* Правая карточка — кнопки по центру */
+.card:last-child {
+    justify-content: center;
+    align-items: center;
+}
+
+/* Вертикальные кнопки */
+.categories.vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Стили кнопок */
+.category-link {
+    display: block;
+    padding: 10px 20px;
+    background-color: #198754;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.category-link:hover {
+    background-color: #145c37;
+}
+
+/* Подвал */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    flex-shrink: 0;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    .blocks-container {
+        flex-direction: column;
+    }
+
+    .card:last-child {
+        align-items: stretch;
+    }
 }
