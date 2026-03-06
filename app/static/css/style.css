@@ -59,6 +59,7 @@ main {
 /* Контейнер для двух блоков */
 .blocks-container {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     flex: 1;                 /* занимает всю высоту main */
 }
