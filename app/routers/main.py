@@ -17,3 +17,13 @@ def index(request: Request):
             "title": "База"
         }
     )
+
+@router.get("/mens")
+def mens(request: Request):
+    return templates.TemplateResponse(
+        "mens.html",
+        {
+            "request": request,
+            "title": "Муская обувь"
+        }
+    )

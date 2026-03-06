@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="blocks-container">
+    <!-- Верхний блок (текст) -->
+    <div class="card">
+        <h1>Мужская обувь</h1>
+        <p>Здесь может быть любой текст, описание, приветствие и т.д.</p>
+        <p>А можно добавить ещё что-то полезное.</p>
+    </div>
+
+    <!-- Нижний блок (вертикальные кнопки) -->
+    <div class="card">
+        <div class="categories vertical">
+            <a class="category-link" href="/mens_b">Ботинки/Сапоги</a>
+            <a class="category-link" href="/mens_t">Туфли</a>
+            <a class="category-link" href="/mens_s">Сабо</a>
+            <a class="category-link" href="/mens_k">Кроссовки</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
