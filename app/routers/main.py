@@ -14,7 +14,6 @@ def index(request: Request):
         "index.html",
         {
             "request": request,
-            "title": "База"
         }
     )
 
@@ -24,6 +23,23 @@ def mens(request: Request):
         "mens.html",
         {
             "request": request,
-            "title": "Муская обувь"
+        }
+    )
+
+@router.get("/womens")
+def mens(request: Request):
+    return templates.TemplateResponse(
+        "womens.html",
+        {
+            "request": request,
+        }
+    )
+
+@router.get("/kids")
+def mens(request: Request):
+    return templates.TemplateResponse(
+        "kids.html",
+        {
+            "request": request,
         }
     )
