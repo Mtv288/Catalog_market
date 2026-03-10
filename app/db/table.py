@@ -10,10 +10,10 @@ class Goods(Base):
     __tablename__ = 'good'
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String())
-    count: Mapped[int] = mapped_column(Integer(), Nullable=True)
+    count: Mapped[int] = mapped_column(Integer(), nullable=True)
     size: Mapped[int] = mapped_column(Integer())
     price: Mapped[int] = mapped_column(Integer())
-    photo_path: Mapped[str] = mapped_column(String(), Nullable=True)
+    photo_path: Mapped[str] = mapped_column(String(), nullable=True)
 
 
 class User(Base):
