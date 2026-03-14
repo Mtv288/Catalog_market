@@ -15,7 +15,7 @@ class Goods(Base):
     size: Mapped[int]
     price: Mapped[int]
     photo_path: Mapped[str] = mapped_column(String(), nullable=True)
-    codeEAN: Mapped[int]
+    codeEAN: Mapped[int] = mapped_column(Integer(), nullable=True)
 
 
 class User(Base):
