@@ -1,6 +1,7 @@
 import csv
 from app.core.config import BASE_DIR
 from app.core.constants import CSV_TO_DB, COLUMNS_LIST
+from app.schemas.pydentic_schemas import GoodsSchema
 
 
 
@@ -14,7 +15,7 @@ def get_data_in_csv(
         sep: str = ";"
 ):
     """
-    Получение списка словарей с нужными колонками для преоброзования  для использования в бд
+    Получение списка словарей с нужными колонками для преобразования для использования в бд
     :param path: путь до файла CSV
     :param column: список нужных колонок из csv
     :param encoding: кодировка (по умолчанию cp1251)
@@ -40,15 +41,20 @@ def map_csv_rows_to_db(data: list[dict], new_key: str):
     :return: список словарей с ключами для бд
     """
 
-    list_value = []
+
+    list_validated = []
     for i in data:
-        for k, j in zip(new_key, i.values()):
-            tmp = {k: j}
-            list_value.append(tmp)
-    return list_value
+        mapped = {k: v for k, v in zip(CSV_TO_DB, i.values())}
+        validated = GoodsSchema(**mapped)
+        list_validated.append(validated)
+    print(list_validated)
 
 
-print(map_csv_rows_to_db(get_data_in_csv(path, COLUMNS_LIST), CSV_TO_DB))
+
+
+
+
+map_csv_rows_to_db(get_data_in_csv(path, COLUMNS_LIST), CSV_TO_DB)
 
 
 
