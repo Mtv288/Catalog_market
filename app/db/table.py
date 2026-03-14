@@ -9,12 +9,13 @@ class Goods(Base):
 
     __tablename__ = 'good'
     id: Mapped[int] = mapped_column(primary_key=True)
-    sku: Mapped[str] = mapped_column(String(), unique=True)
+    code: Mapped[int] = mapped_column(String(), unique=True)
     name: Mapped[str] = mapped_column(String())
     count: Mapped[int] = mapped_column(Integer(), nullable=True)
     size: Mapped[int] = mapped_column(Integer())
     price: Mapped[int] = mapped_column(Integer())
     photo_path: Mapped[str] = mapped_column(String(), nullable=True)
+    codeEAN: Mapped[int]
 
 
 class User(Base):
