@@ -25,23 +25,22 @@ def get_data_in_csv(
 
     return data
 
-def get_values_in_dict(data: List[Dict]):
-    new_list = []
-    for i in data:
-        print(type(i))
-        data_temp = []
-        for j in i:
-            j.g
-            print(g)
+
+
+rows = get_data_in_csv(path, COLUMNS_LIST)
+
+def d (data):
+    list_value = []
+    for i in rows:
+        temp_list = []
+        for j in i.values():
+            temp_list.append(j)
+        list_value.append(temp_list)
+    print(list_value)
 
 
 
-    return new_list
-
-f = get_values_in_dict(get_data_in_csv(path, COLUMNS_LIST))
-
-
-
+d(rows)
 def map_csv_rows_to_db(rows: List[Dict], key_mapping: Dict[str, str]):
     """
     Преобразует список словарей из csv в список словарей для бд меняет ключи
