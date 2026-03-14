@@ -2,6 +2,7 @@ from datetime import date
 from sqlalchemy import String, Integer, DateTime
 from sqlalchemy.orm import Mapped,mapped_column
 from .main_db import Base
+from typing import Optional
 
 
 
@@ -9,10 +10,10 @@ class Goods(Base):
 
     __tablename__ = 'good'
     id: Mapped[int] = mapped_column(primary_key=True)
-    code: Mapped[str] = mapped_column(String(), unique=True)
+    code: Mapped[int] = mapped_column(unique=True)
     name: Mapped[str]
-    count: Mapped[str] = mapped_column(Integer(), nullable=True)
-    size: Mapped[int]
+    count: Mapped[int] = mapped_column(nullable=True)
+    size: Mapped[int] = mapped_column(nullable=True)
     price: Mapped[str]
     photo_path: Mapped[str] = mapped_column(String(), nullable=True)
     codeEAN: Mapped[str] = mapped_column(String(), nullable=True)

@@ -4,14 +4,14 @@ from typing import Optional, Union
 
 
 class GoodsSchema(BaseModel):
-    id: Optional[int] = None
-    code: Optional[str] = None
+
+    code: Optional[Union[int, str]] = None
     name: Optional[str] = ""
     count: Optional[str] = None
     size: Optional[Union[int, str]] = ""
     price: Optional[str] = None
     photo_path: Optional[str] = None
-    codeEAN: Optional[str] = None
+    codeEAN: Optional[Union[int,str]] = None
 
 
 class User(BaseModel):
