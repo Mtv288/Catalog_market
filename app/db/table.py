@@ -9,21 +9,22 @@ class Goods(Base):
 
     __tablename__ = 'good'
     id: Mapped[int] = mapped_column(primary_key=True)
-    sku: Mapped[str] = mapped_column(String(), unique=True)
-    name: Mapped[str] = mapped_column(String())
+    code: Mapped[int]
+    name: Mapped[str]
     count: Mapped[int] = mapped_column(Integer(), nullable=True)
-    size: Mapped[int] = mapped_column(Integer())
-    price: Mapped[int] = mapped_column(Integer())
+    size: Mapped[int]
+    price: Mapped[int]
     photo_path: Mapped[str] = mapped_column(String(), nullable=True)
+    codeEAN: Mapped[int]
 
 
 class User(Base):
 
     __tablename__ = 'user'
     id: Mapped[int] = mapped_column(primary_key=True)
-    user_id: Mapped[int] = mapped_column()
-    name: Mapped[str] = mapped_column(String())
-    date_register: Mapped[date] = mapped_column(DateTime())
-    count_in_coming: Mapped[int] = mapped_column(Integer())
-    lost_date_incoming: Mapped[date] = mapped_column(DateTime())
+    user_id: Mapped[int]
+    name: Mapped[str]
+    date_register: Mapped[date]
+    count_in_coming: Mapped[int]
+    lost_date_incoming: Mapped[date]
 
