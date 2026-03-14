@@ -19,7 +19,7 @@ def get_data_in_csv(
         reader = csv.DictReader(exp, delimiter=sep)
 
         for i in reader:
-            data.append(tuple(i[col] for col in column))
+            data.append({col: i[col] for col in column})
 
     return data
 
