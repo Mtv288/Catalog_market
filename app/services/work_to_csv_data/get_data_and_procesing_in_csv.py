@@ -1,6 +1,7 @@
 import csv
+
 from app.core.config import BASE_DIR
-from app.core.constants import CSV_TO_DB, COLUMNS_LIST
+from app.core.constants import CSV_TO_DB, COLUMNS_LIST, TYPING_OBJ
 from app.schemas.pydentic_schemas import GoodsSchema
 
 
@@ -33,7 +34,40 @@ def get_data_in_csv(
     return data
 
 
-def map_csv_rows_to_db(data: list[dict], new_key: str):
+def typify_objects(data: list[dict], type_obj: list[list]) -> list[dict]:
+    result = []
+    for i in data:
+        new = {}
+        for key, value in i.items():
+            if key in type_obj[0] and value not in (None, ""):
+                try :
+                    new[key] = int(float(value))
+                except ValueError:
+                    new[key] = value
+            else:
+                new[key] = value
+        result.append(new)
+
+    print(result)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def map_csv_rows_to_db(data: list[dict], new_key: str) -> list[dict]:
     """
     Преобразует список словарей из csv в список словарей для бд меняет ключи
     :param data: список словарей из csv
@@ -54,7 +88,9 @@ def map_csv_rows_to_db(data: list[dict], new_key: str):
 
 
 
-map_csv_rows_to_db(get_data_in_csv(path, COLUMNS_LIST), CSV_TO_DB)
+#map_csv_rows_to_db(get_data_in_csv(path, COLUMNS_LIST), CSV_TO_DB)
+d = get_data_in_csv(path, COLUMNS_LIST)
+typify_objects(d, TYPING_OBJ)
 
 
 
