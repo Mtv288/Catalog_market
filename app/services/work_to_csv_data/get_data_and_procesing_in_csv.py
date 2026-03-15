@@ -35,9 +35,9 @@ def get_data_in_csv(
 def typify_objects(data: list[dict], type_obj: dict) -> list[dict]:
     """
     Здесь выбираем нужные столбцы из прочитанного csv и меняем на нужные типы данных
-    :param data: Список словарей из csv в данном случае можно любой list(dict)
+    :param data: Список словарей из csv в данном случае, можно любой list(dict)
      :param type_obj: словарь для мапинга типов
-    :return: список словарей с нужными колонками и типами данных
+    :return: список словарей с нужными ключами и типами данных
     """
     def conv(func, v):
         try:
@@ -54,22 +54,7 @@ def typify_objects(data: list[dict], type_obj: dict) -> list[dict]:
     ]
 
 
-
-def map_csv_rows_to_db(data: list[dict], new_key: str) -> list[dict]:
-    """
-    Преобразует список словарей из csv в список словарей для бд меняет ключи
-    :param data: список словарей из csv
-    :param new_key: список новых ключей для вставки в бд
-    :return: список словарей с ключами для бд
-    """
-
-
-    list_validated = []
-    for i in data:
-        mapped = {k: v for k, v in zip(CSV_TO_DB, i.values())}
-        validated = GoodsSchema(**mapped)
-        list_validated.append(validated)
-    print(list_validated)
+def
 
 
 
@@ -77,8 +62,9 @@ def map_csv_rows_to_db(data: list[dict], new_key: str) -> list[dict]:
 
 
 
-d = get_data_in_csv(path, COLUMNS_LIST)
-print(typify_objects(d, TYPING_OBJ))
+
+
+print(typify_objects(get_data_in_csv(path, COLUMNS_LIST), TYPING_OBJ))
 #map_csv_rows_to_db(typify_objects(d, TYPING_OBJ), CSV_TO_DB)
 
 
