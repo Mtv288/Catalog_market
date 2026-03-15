@@ -1,4 +1,6 @@
 # Константа для выборки нужных столбцов из csv файла #
+from _decimal import Decimal
+
 COLUMNS_LIST = ["code", "name", "quantity", "Размер", "price", "photo", "scan_"]
 
 # Константа для маппинга названий колонок из csv в модель таблицы
@@ -13,7 +15,12 @@ CSV_TO_DB = [
 ]
 
 # Константа для принудительной типизации обьектов
-TYPING_OBJ = [["code", "quantity", "scan_"], ["price"]]
+TYPING_OBJ = {
+    "code": int,
+    "quantity": int,
+    "scan_": int,
+    "price": Decimal
+}
 
 
 
