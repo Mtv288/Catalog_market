@@ -1,9 +1,7 @@
 import csv
-
 from app.core.config import BASE_DIR
 from app.core.constants import CSV_TO_DB, COLUMNS_LIST, TYPING_OBJ
 from app.schemas.pydentic_schemas import GoodsSchema
-
 
 
 path = BASE_DIR/"All.csv"
@@ -35,6 +33,12 @@ def get_data_in_csv(
 
 
 def typify_objects(data: list[dict], type_obj: dict) -> list[dict]:
+    """
+    Здесь выбираем нужные столбцы из прочитанного csv и меняем на нужные типы данных
+    :param data: Список словарей из csv в данном случае можно любой list(dict)
+     :param type_obj: словарь для мапинга типов
+    :return: список словарей с нужными колонками и типами данных
+    """
     def conv(func, v):
         try:
             return func(v)
@@ -48,21 +52,6 @@ def typify_objects(data: list[dict], type_obj: dict) -> list[dict]:
         }
         for row in data
     ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -87,9 +76,10 @@ def map_csv_rows_to_db(data: list[dict], new_key: str) -> list[dict]:
 
 
 
-#map_csv_rows_to_db(get_data_in_csv(path, COLUMNS_LIST), CSV_TO_DB)
+
 d = get_data_in_csv(path, COLUMNS_LIST)
 print(typify_objects(d, TYPING_OBJ))
+#map_csv_rows_to_db(typify_objects(d, TYPING_OBJ), CSV_TO_DB)
 
 
 

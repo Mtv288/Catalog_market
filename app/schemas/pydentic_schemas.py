@@ -1,3 +1,4 @@
+from _decimal import Decimal
 from pydantic import BaseModel, condecimal
 from datetime import date
 from typing import Optional, Union
@@ -5,13 +6,13 @@ from typing import Optional, Union
 
 class GoodsSchema(BaseModel):
 
-    code: Optional[Union[int, str]] = None
-    name: Optional[str] = ""
-    count: Optional[str] = None
-    size: Optional[Union[int, str]] = ""
-    price: Optional[str] = None
-    photo_path: Optional[str] = None
-    codeEAN: Optional[Union[int,str]] = None
+    code: int
+    name: str
+    count: int
+    size: str
+    price: Optional[Decimal] = Decimal('0')
+    photo_path: str
+    codeEAN: int
 
 
 class User(BaseModel):

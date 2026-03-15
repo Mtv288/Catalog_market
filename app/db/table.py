@@ -1,4 +1,6 @@
 from datetime import date
+
+from _decimal import Decimal
 from sqlalchemy import String, Integer, DateTime
 from sqlalchemy.orm import Mapped,mapped_column
 from .main_db import Base
@@ -14,7 +16,7 @@ class Goods(Base):
     name: Mapped[str]
     count: Mapped[int] = mapped_column(nullable=True)
     size: Mapped[int] = mapped_column(nullable=True)
-    price: Mapped[str]
+    price: Mapped[Decimal]
     photo_path: Mapped[str] = mapped_column(String(), nullable=True)
     codeEAN: Mapped[str] = mapped_column(String(), nullable=True)
 
