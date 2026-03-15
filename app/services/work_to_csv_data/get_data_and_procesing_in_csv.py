@@ -54,7 +54,7 @@ def typify_objects(data: list[dict], type_obj: dict) -> list[dict]:
     ]
 
 
-def
+
 
 
 
